@@ -18,12 +18,6 @@ Este repositório contém a implementação, os experimentos e as evidências da
 Ollama + Open WebUI**, utilizando o modelo **Granite-3.1-3B-A800M-Instruct** (IBM), rodando em WSL2 com
 GPU NVIDIA, comparando execução com e sem GPU.
 
-> **Observação:** a equipe iniciou os experimentos com o modelo **Phi-4-mini-instruct** (denso, 3,8B) e
-> trocou para o **Granite-3.1-3B-A800M-Instruct** (Mixture of Experts, 3B totais / ~800M ativos por
-> token) com autorização do professor em 14/09/2026. Este repositório contém apenas as medições
-> referentes ao Granite. A comparação entre os dois experimentos está documentada na Seção 11.1 do
-> relatório técnico.
-
 ## Modelo utilizado
 
 | Item | Valor |
