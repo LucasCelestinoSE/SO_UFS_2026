@@ -1,15 +1,28 @@
 # AV1 Sistemas Operacionais — Trilha A (Ollama + Open WebUI)
 
 **Disciplina:** Sistemas Operacionais — AV1 — 2026.2
-**Equipe:** Granite 3.1
-**Integrantes:** Mateus do Rosario Costa, Mikael Douglas Santos Farias, Cadmo Octávio José do Nascimento Neto, Douglas de Oliveira Dêda, Paulo Gabriel de Oliveira Cardoso, Lucas Conceição Celestino.
-**Professor(a):** Glauco de Figueiredo Carneiro
+**Equipe:** Equipe 07
+**Integrantes:** 
+Mikael Douglas Santos Farias;
+Cadmo Otávio José do Nascimento Neto; 
+Mateus do Rosario Costa;
+Douglas de Oliveira Déda;
+Paulo Gabriel de Oliveira Cardoso;
+Lucas Conceicao Celestino.
+
+**Professor(a):** GLAUCO DE FIGUEIREDO CARNEIRO
 
 ## Resumo
 
 Este repositório contém a implementação, os experimentos e as evidências da **Trilha A — Chat local:
 Ollama + Open WebUI**, utilizando o modelo **Granite-3.1-3B-A800M-Instruct** (IBM), rodando em WSL2 com
 GPU NVIDIA, comparando execução com e sem GPU.
+
+> **Observação:** a equipe iniciou os experimentos com o modelo **Phi-4-mini-instruct** (denso, 3,8B) e
+> trocou para o **Granite-3.1-3B-A800M-Instruct** (Mixture of Experts, 3B totais / ~800M ativos por
+> token) com autorização do professor em 14/09/2026. Este repositório contém apenas as medições
+> referentes ao Granite. A comparação entre os dois experimentos está documentada na Seção 11.1 do
+> relatório técnico.
 
 ## Modelo utilizado
 
