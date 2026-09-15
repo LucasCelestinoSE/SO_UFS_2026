@@ -1,0 +1,77 @@
+# docker-compose.yml — Trilha A (Ollama + Open WebUI), WSL2 + GPU NVIDIA
+# ---------------------------------------------------------------------
+# Reproduz exatamente a infraestrutura montada manualmente com `docker run`:
+# dois servidores Ollama independentes (um com GPU, outro só CPU) e o
+# Open WebUI conversando com o servidor GPU por padrão.
+#
+# Pré-requisito: NVIDIA Container Toolkit já instalado e configurado
+# (nvidia-ctk runtime configure --runtime=docker), como no guia da atividade.
+#
+# Como usar:
+#   docker compose up -d        # sobe os três serviços
+#   docker compose ps           # confere status
+#   docker compose logs -f      # acompanha os logs
+#   docker compose down         # para e remove os containers (mantém os volumes)
+#
+# Importante: os volumes abaixo estão marcados como "external" porque
+# reaproveitam os volumes já criados manualmente (com os modelos já
+# baixados) — não são recriados do zero. Se for a primeira vez que você
+# sobe o ambiente (sem ter rodado os `docker volume create` antes), veja
+# a observação ao final deste arquivo.
+
+services:
+  ollama-gpu:
+    image: ollama/ollama
+    container_name: ollama-gpu
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-gpu-data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+
+  ollama-cpu:
+    image: ollama/ollama
+    container_name: ollama-cpu
+    ports:
+      - "11435:11434"
+    volumes:
+      - ollama-cpu-data:/root/.ollama
+    restart: unless-stopped
+    # sem a chave "deploy" -> este container nunca enxerga a GPU
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    network_mode: host
+    environment:
+      - OLLAMA_BASE_URL=http://127.0.0.1:11434   # aponta para o ollama-gpu por padrão
+    volumes:
+      - open-webui-data:/app/backend/data
+    depends_on:
+      - ollama-gpu
+      - ollama-cpu
+    restart: unless-stopped
+
+volumes:
+  ollama-gpu-data:
+    external: true
+  ollama-cpu-data:
+    external: true
+  open-webui-data:
+    external: true
+
+# ---------------------------------------------------------------------
+# Observação — primeira execução do zero (sem volumes manuais prévios):
+# Se estiver reproduzindo o ambiente em uma máquina nova, remova a linha
+# "external: true" das três definições de volume acima (deixando só o
+# nome, ex. "ollama-gpu-data:"). Assim o Compose cria os volumes do zero
+# automaticamente no primeiro "docker compose up -d", e os modelos serão
+# baixados normalmente com "docker exec ollama-gpu ollama pull <modelo>".
+# ---------------------------------------------------------------------

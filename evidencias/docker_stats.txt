@@ -1,0 +1,4 @@
+CONTAINER ID   NAME         CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+30713ba09baa   ollama-gpu   0.10%     3.133GiB / 15.57GiB   20.13%    2.08GB / 33.9MB   6.96GB / 2.06GB   85
+2827752980a5   ollama-cpu   0.00%     58.55MiB / 15.57GiB   0.37%     2.08GB / 31MB     4.24GB / 2.04GB   35
+6766198befd6   open-webui   0.74%     724.7MiB / 15.57GiB   4.55%     0B / 0B           1.32GB / 430kB    102

@@ -1,0 +1,11 @@
+config,execucao_id,pergunta,duracao_s,tokens_por_s,eval_count,cpu_container_pct,mem_container_mb,ok
+GPU,1,O que é um sistema operacional?,6.28,161.95,95,0.1,971.1,True
+GPU,2,Explique em uma frase o que é uma thread.,0.26,143.47,20,0.12,988.6,True
+GPU,3,O que faz o escalonador de processos?,2.52,171.65,421,0.09,990.1,True
+GPU,4,Explique detalhadamente a diferença entre processo,4.81,180.6,840,0.1,1021.0,True
+GPU,5,Descreva passo a passo como uma chamada de sistema,3.18,181.05,546,0.09,1078.3,True
+CPU,1,O que é um sistema operacional?,13.6,42.56,305,0.01,2295.8,True
+CPU,2,Explique em uma frase o que é uma thread.,0.47,48.37,15,0.01,2318.3,True
+CPU,3,O que faz o escalonador de processos?,10.41,41.59,426,0.01,2319.4,True
+CPU,4,Explique detalhadamente a diferença entre processo,22.22,38.42,842,0.0,2349.1,True
+CPU,5,Descreva passo a passo como uma chamada de sistema,18.32,39.21,706,0.01,2408.4,True

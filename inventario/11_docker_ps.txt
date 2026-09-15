@@ -1,0 +1,4 @@
+CONTAINER ID   IMAGE                                COMMAND               CREATED      STATUS                       PORTS                                             NAMES
+6766198befd6   ghcr.io/open-webui/open-webui:main   "bash start.sh"       2 days ago   Up About an hour (healthy)                                                     open-webui
+2827752980a5   ollama/ollama                        "/bin/ollama serve"   2 days ago   Up About an hour             0.0.0.0:11435->11434/tcp, [::]:11435->11434/tcp   ollama-cpu
+30713ba09baa   ollama/ollama                        "/bin/ollama serve"   2 days ago   Up About an hour             0.0.0.0:11434->11434/tcp, [::]:11434->11434/tcp   ollama-gpu

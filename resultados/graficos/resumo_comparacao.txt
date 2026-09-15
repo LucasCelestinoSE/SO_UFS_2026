@@ -1,0 +1,22 @@
+Resumo comparativo — Granite 3.1 3B-A800M-Instruct (MoE) com GPU vs. sem GPU
+=======================================================
+
+Fase sequencial (médias das perguntas):
+        duracao_s  tokens_por_s
+config                         
+CPU         13.00         42.03
+GPU          3.41        167.74
+
+-> Com GPU, o tempo médio de resposta foi 3.81x mais rápido que só CPU.
+-> Com GPU, a geração de tokens foi 3.99x mais rápida (tokens/s) que só CPU.
+
+Fase de concorrência (por nível):
+                   duracao_media_req_s        falhas      throughput_req_s      
+config                             CPU    GPU    CPU  GPU              CPU   GPU
+nivel_concorrencia                                                              
+2                                 3.74   1.10    0.0  0.0             0.50  1.67
+4                                22.08   4.88    0.0  0.0             0.08  0.41
+6                                34.52   8.13    0.0  0.0             0.09  0.37
+12                               63.21  13.35    0.0  0.0             0.11  0.47
+
+Interpretação sugerida para o relatório: observe se o tempo médio por requisição da configuração CPU cresce mais rápido conforme o nível de concorrência aumenta (sinal de fila/escalonamento saturando a CPU), enquanto a GPU tende a sustentar tempos mais estáveis até o ponto em que a VRAM ou o paralelismo do Ollama vira o gargalo.
