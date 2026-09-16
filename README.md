@@ -176,3 +176,6 @@ volumes Docker (`ollama-gpu-data`, `ollama-cpu-data`) e são baixados automatica
 
 Ver [`docs/declaracao_ia_generativa.md`](docs/declaracao_ia_generativa.md) e a Seção 14 do relatório
 técnico.
+
+## Video da  Atividade
+https://youtu.be/3ue80ftj1Wc
